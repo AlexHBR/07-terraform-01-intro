@@ -70,21 +70,36 @@ on linux_amd64
 В виде результата этой задачи приложите вывод `--version` двух версий терраформа доступных на вашем компьютере 
 или виртуальной машине.
 ```
-pp@serverd:~$ tfenv list
-* 1.2.2 (set by /home/vagrant/.tfenv/version)
-  1.2.4
-pp@serverd:~$ terraform --version
-Terraform v1.2.4
-on linux_arm64
-pp@serverd:~$ tfenv use 1.2.2
-Switching default version to v1.2.2
-Switching completed
-pp@serverd:~$ terraform --version
+root@serverd:/home/pp# tfswitch
+2022/07/06 22:02:38 [Error] : Retrieving contents from url: https://releases.hashicorp.com/terraform/
+!!! Включаем прокси на буржуйские сервера!!!
+
+root@serverd:/home/pp# tfswitch
+Use the arrow keys to navigate: ↓ ↑ → ←
+? Select Terraform version:
+    1.2.2 *recent
+  ▸ 1.2.4 *recent
+    1.2.3 *recent
+    1.2.1
+↓   1.2.0
+
+✔ 1.2.2 *recent
+Switched terraform to version "1.2.2"
+root@serverd:/home/pp# terraform --version
 Terraform v1.2.2
 on linux_amd64
 
 Your version of Terraform is out of date! The latest version
-is 1.2.4. You can update by downloading from https://www.terraform.io/downloads.            html
+is 1.2.4. You can update by downloading from https://www.terraform.io/downloads.html
+
+root@serverd:/home/pp# tfswitch
+✔ 1.2.4 *recent
+Switched terraform to version "1.2.4"
+root@serverd:/home/pp# terraform --version
+Terraform v1.2.4
+on linux_amd64
+root@serverd:/home/pp#
+
 ```
 ---
 
